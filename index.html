@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="asstes/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+</head>
+<body>
+
+    <img src="asstes/images/istockphoto-470604022-612x612-removebg-preview.png" alt="" id="pic2">
+    <img src="asstes/images/happy-travelers-with-map-removebg-preview.png" alt="" id="pic1">
+    <img src="asstes/images/smiley-woman-posing-her-baggage-removebg-preview.png" alt="" id="pic3">
+    <img src="asstes/images/23609994_5_4-removebg-preview.png" alt="" id="pic4">
+    <img src="asstes/images/23609994_5_4-removebg-preview.png" alt="" id="pic5">
+    <img src="asstes/images/4955461_31202-removebg-preview.png" alt="" id="pic6">
+    <img src="asstes/images/9446009_4174409-removebg-preview.png" alt=""i id="pic7">
+
+    <div id="head">
+        <h1 id="travel"> Travel Booking  Tickets</h1>
+
+    </div>
+
+    <div id="background">
+
+    <form action="">
+        <label id="name1" for="">Name</label>
+        <input type="text" placeholder="enter your name" id="name">
+        <h1 id="nameerror"></h1>
+        <label id="email1" for="">Email</label>
+        <input type="text" placeholder="enter your email" id="email">
+        <h1 id="emailerror"></h1>
+        <label id="password1" for="">Password</label>
+        <input type="text" placeholder="enter your password" id="password">
+        <h1 id="passworderror"></h1>
+        <label id="passenger1" for="">Passenger</label>
+        <input type="text" placeholder="enter your passenger" id="passenger">
+        <h1 id="passengererror"></h1>
+        <label id="date1" for="">Date</label>
+        <input type="date" placeholder="enter your date" id="date">
+        <h1 id="dateerror"></h1>
+        <label id="start1" for="">Starting</label>
+        <input type="text" placeholder="enter your starting place" id="startingplace">
+        <h1 id="startingerror"></h1>
+        <label id="end1"  for="">End</label>
+        <input type="text" placeholder="enter your ending place" id="endingplace">
+        <h1 id="endingerror"></h1>
+
+    </div>
+
+        <button id="btnadd">Submit</button>
+        <button id="updatebutton">Update</button>
+
+    </form>
+    <div id="color">
+        <ul >
+            <li id="down">
+                <div style="display: flex;" id="down">
+                    <h1 id="names">Name</h1>
+                    <h1 id="emails">Email</h1>
+                    <h1 id="passwords">Password</h1>
+                    <h1 id="passengers">Passenger</h1>
+                    <h1 id="dates">Date</h1>
+                    <h1 id="starts">Starting</h1>
+                    <h1 id="ends">End</h1>
+                    <h1 id="actions">Actions</h1>
+                </div>
+            </li>
+            <li>
+               <div id="uppendingdata">
+                
+
+               </div> 
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        "use strict";
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let password = document.getElementById("password");
+        let passenger = document.getElementById("passenger");
+        let date = document.getElementById("date");
+        let startingplace = document.getElementById("startingplace");
+        let endingplace = document.getElementById("endingplace");
+        let btnadd = document.getElementById("btnadd");
+        let downs = document.getElementById("down");
+        let colors = document.getElementById("color")
+        let uppendingdata = document.getElementById("uppendingdata");
+        let updatebutton = document.getElementById("updatebutton");
+        updatebutton.style.display="none";
+        downs.style.display="none";
+        colors.style.display="none"
+
+
+
+        let nameerror = document.getElementById("nameerror");
+        let emailerror = document.getElementById("emailerror");
+        let passworderror = document.getElementById("passworderror");
+        let passengererror = document.getElementById("passengererror");
+        let dateerror = document.getElementById("dateerror");
+        let startingerror = document.getElementById("startingerror");
+        let endingerror = document.getElementById("endingerror");
+
+
+
+        btnadd.addEventListener("click",buttonfunction);
+
+        name.addEventListener("change",namefunction)
+        function namefunction(){
+            if(name.value == "" || name.value == undefined || name.value == null){
+                nameerror.innerHTML="please enter your name";
+                
+                return false;
+            }
+            else{
+                nameerror.innerHTML="";
+            }
+        }
+
+
+        email.addEventListener("change",emailfunction)
+        function emailfunction(){
+            if(email.value == "" || email.value == undefined || email.value == null){
+                emailerror.innerHTML="please enter your email";
+                return false;
+            }
+            else{
+                emailerror.innerHTML="";
+            }
+        }
+
+        password.addEventListener("change",passwordfunction)
+        function passwordfunction(){
+            if(password.value == "" || password.value == undefined || password.value == null){
+                passworderror.innerHTML="please enter your password";
+                return false;
+            }
+            else{
+            passworderror.innerHTML="";
+            }
+        }
+        
+        passenger.addEventListener("change",passengerfunction)
+        function passengerfunction(){
+            if(passenger.value == "" || passenger.value == undefined || passenger.value == null){
+                passengererror.innerHTML="please enter your passenger";
+                return false;
+            }
+            else{
+                passengererror.innerHTML="";
+            }
+        }
+        
+
+        date.addEventListener("change",datefunction)
+        function datefunction(){
+            if(date.value == "" || date.value == undefined || date.value == null){
+                dateerror.innerHTML="please enter your date";
+                return false;
+            }
+            else{
+                dateerror.innerHTML="";
+            }
+        }
+
+        startingplace.addEventListener("change",startingplacefunction)
+        function startingplacefunction(){
+            if(startingplace.value == "" || startingplace.value == undefined || startingplace.value == null){
+                startingerror.innerHTML="please enter your startingplace";
+                return false;
+            }
+            else{
+                startingerror.innerHTML="";
+            }
+        }
+        
+        endingplace.addEventListener("change",endingplacefunction)
+        function endingplacefunction(){
+            if(endingplace.value == "" || endingplace.value == undefined || endingplace.value == null){
+                endingerror.innerHTML="please enter your endingplace";
+                return false;
+            }
+            else{
+                endingerror.innerHTML="";
+            }
+        }
+
+
+        btnadd.addEventListener("click",buttonfunction);
+
+
+        function buttonfunction(event) {
+            event.preventDefault();
+
+            if(name.value == "" || name.value == undefined || name.value == null){
+                nameerror.innerHTML="please enter your name";
+          
+                return false;
+         
+            } 
+             else if (email.value == "" || email.value == undefined || email.value == null) {
+                emailerror.innerHTML = "please enter your email";
+               
+                return false;
+            }
+            else if (password.value == "" || password.value == undefined || password.value == null) {
+                passworderror.innerHTML = "please enter your password";
+                
+                return false;
+            } else if (passenger.value == "" || passenger.value == undefined || passenger.value == null) {
+                passengererror.innerHTML = "please enter your  passenger";
+                
+                return false;
+            } else if (date.value == "" || date.value == undefined || date.value == null) {
+                dateerror.innerHTML = "please enter your date";
+               
+                return false;
+          
+            } else if (startingplace.value == "" || startingplace.value == undefined || startingplace.value == null) {
+                startingerror.innerHTML = "please enter your startingplace";
+                
+                return false;
+            } else if (endingplace.value == "" || endingplace.value == undefined || endingplace.value == null) {
+                endingerror.innerHTML = "please enter your endingplace";
+               
+                return false;
+            }
+            else{
+                updatebutton.style.display="none";
+                btnadd.style.display="block";
+                downs.style.display="block";
+                colors.style.display="block";
+                
+                let uppendinginnerdivision = document.createElement("div");
+                uppendingdata.appendChild(uppendinginnerdivision)
+
+                let namenewtag = document.createElement("input")
+                namenewtag.value=name.value;
+                namenewtag.setAttribute("readonly","readonly");
+                namenewtag.classList.add("inputbox1");
+                uppendinginnerdivision.appendChild(namenewtag);
+
+
+                let emailnewtag = document.createElement("input")
+                emailnewtag.value=email.value;
+                emailnewtag.setAttribute("readonly","readonly");
+                emailnewtag.classList.add("inputbox2");
+                uppendinginnerdivision.appendChild(emailnewtag);
+
+
+                let passwordnewtag = document.createElement("input")
+                passwordnewtag.value=password.value;
+                passwordnewtag.setAttribute("readonly","readonly");
+                passwordnewtag.classList.add("inputbox3");
+                uppendinginnerdivision.appendChild(passwordnewtag);
+
+
+                let passengernewtag = document.createElement("input")
+                passengernewtag.value=passenger.value;
+                passengernewtag.setAttribute("readonly","readonly");
+                passengernewtag.classList.add("inputbox4");
+                uppendinginnerdivision.appendChild(passengernewtag);
+
+
+
+                let datenewtag = document.createElement("input")
+                datenewtag.value=date.value;
+                datenewtag.setAttribute("readonly","readonly");
+                datenewtag.classList.add("inputbox5");
+                uppendinginnerdivision.appendChild(datenewtag);
+
+
+                let startingplacenewtag = document.createElement("input")
+                startingplacenewtag.value=startingplace.value;
+                startingplacenewtag.setAttribute("readonly","readonly");
+                startingplacenewtag.classList.add("inputbox6");
+                uppendinginnerdivision.appendChild(startingplacenewtag);
+
+
+                let endingplacenewtag = document.createElement("input")
+                endingplacenewtag.value=endingplace.value;
+                endingplacenewtag.setAttribute("readonly","readonly");
+                endingplacenewtag.classList.add("inputbox7");
+                uppendinginnerdivision.appendChild(endingplacenewtag);
+
+
+                name.value="";
+                email.value="";
+                password.value="";
+                passenger.value="";
+                date.value="";
+                startingplace.value="";
+                endingplace.value="";
+
+
+                
+
+                let editbtn = document.createElement("i")
+                editbtn.className="bi bi-pencil-square";
+                editbtn.classList.add("editicon");
+                uppendinginnerdivision.appendChild(editbtn);
+
+//edit
+                editbtn.addEventListener("click",editfunction);
+                function editfunction(){
+
+
+                 
+
+                
+
+             
+
+
+                    namenewtag.removeAttribute("readonly","readonly");
+                    emailnewtag.removeAttribute("readonly","readonly");
+                    passwordnewtag.removeAttribute("readonly","readonly");
+                    passengernewtag.removeAttribute("readomly","readonly");
+                    datenewtag.removeAttribute("readonly","readonly");
+                    startingplacenewtag.removeAttribute("readonly","readonly");
+                    endingplacenewtag.removeAttribute("readonly","readonly");
+                  
+                    
+                }
+                 
+                
+                updatebutton.addEventListener("click",updatefunction);
+                function updatefunction(){
+                    uppendingdata.appendChild(updatebutton);
+                    btnadd.style.display="block"
+
+updatebutton.style.display="none"
+
+                 namenewtag.value = name.value;
+                    emailnewtag.value = email.value;
+                     passwordnewtag.value = password.value;
+                     passengernewtag.value=passenger.value;
+                     datenewtag.value=date.value;
+                     startingplacenewtag.value=startingplace.value;
+                     endingplacenewtag.value=endingplace.value;
+
+
+
+
+
+
+
+
+                    name.value="";
+                email.value="";
+                password.value="";
+                passenger.value="";
+                date.value="";
+                startingplace.value="";
+                endingplace.value="";
+                }
+
+
+
+                let btn3 = document.createElement("i");
+                btn3.className = "bi bi-save-fill";
+                btn3.classList.add("saveicon");
+                uppendinginnerdivision.appendChild(btn3);
+
+                btn3.addEventListener("click", savefunction);
+                    function savefunction() {
+
+                        namenewtag.setAttribute("readonly", "readonly");
+                        emailnewtag.setAttribute("readonly", "readonly");
+                        passwordnewtag.setAttribute("readonly", "readonly");
+                        passengernewtag.setAttribute("readonly", "readonly");
+                        datenewtag.setAttribute("readonly", "readonly");
+                        startingplacenewtag.setAttribute("readonly", "readonly");
+                        endingplacenewtag.setAttribute("readonly", "readonly");
+                    }
+          
+                let deletebtn = document.createElement("i")
+                deletebtn.className="bi bi-x-octagon";
+                deletebtn.classList.add("deleteicon");
+                uppendinginnerdivision.appendChild(deletebtn);
+                deletebtn.addEventListener("click",deletefunction);
+                function deletefunction(){
+                    uppendinginnerdivision.style.display="none"
+                    
+                }
+
+
+            }
+            
+            
+        }
+
+
+
+    </script>
+</body>
+</html>
